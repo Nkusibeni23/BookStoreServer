@@ -40,6 +40,7 @@ export const getoneOrderB = async (id) => {
              },
              {
               model: users,
+              attributes: { exclude: ["password"] },
               as: "OrdersUser",
                },
          
@@ -98,6 +99,7 @@ export const getone = async (id) => {
              },
              {
               model: users,
+              attributes: { exclude: ["password"] },
               as: "OrdersUser",
                },
          
@@ -123,6 +125,7 @@ export const getAllOrderes = async () => {
              },
              {
               model: users,
+              attributes: { exclude: ["password"] },
               as: "OrdersUser",
                },
          
