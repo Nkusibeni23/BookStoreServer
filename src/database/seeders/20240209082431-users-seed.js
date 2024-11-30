@@ -4,13 +4,14 @@ import bcrypt from "bcrypt";
 module.exports = {
   async up(queryInterface, Sequelize) {
     const saltRounds = 10; 
-    const hashedPassword = await bcrypt.hash("1234", saltRounds);
+    const hashedAdminPassword = await bcrypt.hash("admin", saltRounds);
+    const hashedUserPassword = await bcrypt.hash("admin", saltRounds);
     await queryInterface.bulkInsert('Users', [
       {
         username: 'John',
         email: 'john@gmail.com',
         role: 'customer',
-        password: hashedPassword,
+        password: hashedUserPassword,
         points: '100',
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -20,7 +21,7 @@ module.exports = {
         username: 'admin',
         email: 'admin@gmail.com',
         role: 'admin',
-        password: hashedPassword,
+        password: hashedAdminPassword,
         points: '',
         createdAt: new Date(),
         updatedAt: new Date(),
